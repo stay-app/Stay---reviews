@@ -4,23 +4,16 @@ class Review extends React.Component{
   constructor(props) {
     super(props)
 
-    this.state={
-      data:{}
-    }
   }
 
-  componentDidMount(){
-    this.setState({
-      data:this.props.data
-    })
-  }
 
   render(){
     return(
       <div>
-        <div>{this.state.data.name}</div>
-        <div>{this.state.data.review_date}</div>
-        <div>{this.state.data.comments}</div>
+        <img src={this.props.data.profile}></img>
+        <div>{this.props.data.name}</div>
+        <div>{this.props.data.review_date}</div>
+        <div>{this.props.data.comments}</div>
       </div>
     )
   }
