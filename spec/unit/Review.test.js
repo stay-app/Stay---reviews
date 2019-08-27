@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 import {shallow} from 'enzyme'
-configure({ adapter: new Adapter() });
+Enzyme.configure({ adapter: new Adapter() });
 
 it('renders without cashing', () => {
   const div = document.createElement('dv');
