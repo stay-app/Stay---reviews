@@ -6,7 +6,6 @@ class Review extends React.Component{
 
   }
 
-
   render(){
     return(
       <div>

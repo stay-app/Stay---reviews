@@ -7,11 +7,6 @@ import Adapter from 'enzyme-adapter-react-16';
 import {shallow} from 'enzyme'
 Enzyme.configure({ adapter: new Adapter() });
 
-it('renders without cashing', () => {
-  const div = document.createElement('dv');
-  ReactDOM.render(<Review/>, div);
-  ReactDOM.unmountComponentAtNode(div)
-})
 
 
 describe('Addition', () => {
@@ -20,20 +15,22 @@ describe('Addition', () => {
   });
 });
 
-// describe('Review', () => {
-//   const reviewData={
-//     name:"jinjing",
-//     review_data:"3/14/19",
-//     comments:"it is good"
-//   }
-//   const wrapper = shallow(<Review data={reviewData}/>)
+describe('Review', () => {
+  const reviewData={
+    name:"jinjing",
+    review_data:"3/14/19",
+    comments:"it is good"
+  }
 
-//   expect(
-//     wrapper.containsMatchingElement(
-//       <div>jinjing</div>
-//     )
-//   ).toBe(true)
-// })
+  const wrapper = shallow(<Review data={reviewData}/>)
+  test('check the prop',() => {
+    expect(
+      wrapper.containsMatchingElement(
+        <div>jinjing</div>
+      )
+    ).toBe(true)
+  })
+})
 
 // describte('Review component', () => {
 //   it('starts with a cou'), () => {

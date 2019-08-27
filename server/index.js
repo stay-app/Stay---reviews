@@ -10,7 +10,6 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
 
 
-
 app.get('/api/reviews', (req, res) => {
   db.get.review(req.query.host, (err,data) => {
       if(err) {
