@@ -24,7 +24,6 @@ class ReviewSection extends React.Component{
     this.renderCurrentPage = this.renderCurrentPage.bind(this)
   }
 
-
   componentDidMount(){
     $.get('/api/reviews',{host:this.state.hostID},(data) => {
       const rating = this.calculeteAverageRating(data);

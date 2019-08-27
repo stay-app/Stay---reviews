@@ -8,13 +8,12 @@ class ReviewList extends React.Component{
 
   }
 
-
   render(){
     return(
       <div>
         {this.props.reviewList.map((data) => { return <Review data={data}/>})}
         <Page
-          renderCurrentPage={renderCurrentPage}
+          renderCurrentPage={this.props.renderCurrentPage}
           lastPage = {this.props.lastPage}
           count={this.props.count}
         />

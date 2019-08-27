@@ -10,9 +10,9 @@ const con = mysql.createConnection({
 
 con.connect();
 
-for( let i=0; i <2700; i++) {
+for( let i=0; i <10200; i++) {
   let randomHost = Math.floor(Math.random()*100) + 1
-  let randomCustomer = Math.floor(Math.random()*600) + 1
+  let randomCustomer = Math.floor(Math.random()*1000) + 1
 
   const inputMessage = "INSERT INTO stay set ?";
   const option = {host:randomHost, customer:randomCustomer}
