@@ -1,4 +1,4 @@
-/* insert stay (2700) fake data */
+/* insert stay (10200) fake data */
 const mysql = require('mysql');
 
 const con = mysql.createConnection({

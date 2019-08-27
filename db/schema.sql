@@ -5,7 +5,7 @@ USE stay;
 CREATE TABLE IF NOT EXISTS review (
   id INT AUTO_INCREMENT,
   review_date DATE NOT NULL,
-  comments VARCHAR(1000) DEFAULT NULL,
+  comments VARCHAR(2000) DEFAULT NULL,
   rating_accuracy INT(5) DEFAULT NULL,
   rating_communication INT(5) DEFAULT NULL,
   rating_cleanliness INT(5) DEFAULT NULL,
@@ -25,13 +25,13 @@ CREATE TABLE IF NOT EXISTS stay (
 
 CREATE TABLE IF NOT EXISTS host (
   id INT AUTO_INCREMENT,
-  name VARCHAR(20) NOT NULL,
+  name VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS customer (
   id INT AUTO_INCREMENT,
-  name VARCHAR(40) NOT NULL,
+  name VARCHAR(100) NOT NULL,
   profile VARCHAR(100) DEFAULT NULL,
   PRIMARY KEY (id)
 );
