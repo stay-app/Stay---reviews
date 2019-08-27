@@ -13,24 +13,47 @@ class ReviewSection extends React.Component{
       hostID:87,
       reviewList:[],
       rating:{},
-      overallRate:0
+      overallRate:0,
+      lastPage:1,
+      count:0,
+      currentList:[]
     }
 
-    this.calculeteAverageRating = this.calculeteAverageRating.bind(this)
+    this.calculeteAverageRating = this.calculeteAverageRating.bind(this);
+    this.currentPageReviewList = this.currentPageReviewList.bind(this);
+    this.renderCurrentPage = this.renderCurrentPage.bind(this)
   }
 
 
   componentDidMount(){
     $.get('/api/reviews',{host:this.state.hostID},(data) => {
-      const rating = this.calculeteAverageRating(data)
+      const rating = this.calculeteAverageRating(data);
+      const count = rating.count;
+      const lastPage = Math.ceil(count / 7);
+      const currentList = this.currentPageReviewList(1,data,count)
 
       this.setState({
+        lastPage,
+        rating,
         reviewList:data,
-        rating:rating,
-        overallRate:rating.review,
-        count:rating.count
+        currentList,
+        count,
+        overallRate:rating.review
       })
     })
+  }
+
+  renderCurrentPage(curPg){
+    const currentList = this.currentPageReviewList(curPg,this.state.reviewList,this.state.count)
+    this.setState({
+      currentList
+    })
+  }
+
+  currentPageReviewList(curPg,reviewList,count){
+    let beginIndex = (curPg - 1) * 7;
+    let endingIndex = Math.min(beginIndex + 6,count-1);
+    return reviewList.slice(beginIndex, endingIndex+1);
   }
 
   calculeteAverageRating(data){
@@ -64,7 +87,12 @@ class ReviewSection extends React.Component{
       <div>
         <div>Summary</div>
         <Rating rating={this.state.rating}/>
-        <ReviewList reviewList={this.state.reviewList}/>
+        <ReviewList
+            reviewList={this.state.currentList}
+            lastPage={this.state.lastPage}
+            count={this.state.count}
+            renderCurrentPage = {this.renderCurrentPage}
+        />
       </div>
       )
   }
