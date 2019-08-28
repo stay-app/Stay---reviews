@@ -16,6 +16,7 @@ class ReviewList extends React.Component{
           renderCurrentPage={this.props.renderCurrentPage}
           lastPage = {this.props.lastPage}
           count={this.props.count}
+          searchStatus = {this.props.searchStatus}
         /> }
       </div>
     )

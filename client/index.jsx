@@ -11,7 +11,7 @@ class ReviewSection extends React.Component{
   constructor(props) {
     super(props)
     this.state={
-      searchStatus:true,
+      searchStatus:false,
       searchCount:7,
       searchedList:[],
       searchValue:"jinjing",
@@ -19,7 +19,7 @@ class ReviewSection extends React.Component{
       reviewList:[],
       rating:{},
       overallRate:0,
-      lastPage:1,
+      lastPage:0,
       count:0,
       currentList:[]
     }
@@ -29,7 +29,8 @@ class ReviewSection extends React.Component{
     this.renderCurrentPage = this.renderCurrentPage.bind(this);
     this.clearSearchValue = this.clearSearchValue.bind(this);
     this.submitSearchValue = this.submitSearchValue.bind(this);
-    this.changeSearchValue = this.changeSearchValue.bind(this)
+    this.changeSearchValue = this.changeSearchValue.bind(this);
+    this.calculateSearchList = this. calculateSearchList.bind(this)
   }
 
   //setup for initial rendering
@@ -51,15 +52,22 @@ class ReviewSection extends React.Component{
     })
   }
 
-  //functions related to search bar
+  //functions for search bar
   submitSearchValue(){
     if(this.state.searchValue !== "") {
-      console.log(this.state.searchValue)
-    }
+      let keyWord = this.state.searchValue;
+      let searchedList = this.calculateSearchList(keyWord);
+      let searchCount = searchedList.length
+      let lastPage = Math.ceil(searchCount / 7);
 
-    // this.setState({
-    //   search:key
-    // })
+
+      this.setState({
+        searchStatus:true,
+        searchCount,
+        searchedList,
+        lastPage
+      })
+    }
   }
 
   changeSearchValue(value){
@@ -69,7 +77,9 @@ class ReviewSection extends React.Component{
   }
 
   clearSearchValue(){
+    const lastPage = Math.ceil(this.state.count / 7);
     this.setState({
+      lastPage,
       searchStatus:false,
       searchValue:"",
       searchCount:0,
@@ -77,21 +87,31 @@ class ReviewSection extends React.Component{
     })
   }
 
-  //functions to render reviews
+  //help function to filter reviews that contain key word
+  calculateSearchList(keyWord){
+    let filteredList = this.state.reviewList.filter((reviewObj) =>
+       reviewObj.comments.toUpperCase().includes(keyWord.toUpperCase())
+    )
+    return filteredList
+  }
+
+
+  //function for reviews rendering
   renderCurrentPage(curPg){
-    const currentList = this.currentPageReviewList(curPg,this.state.reviewList,this.state.count)
+    const currentList = this.state.searchStatus? this.currentPageReviewList(curPg,this.state.searchedList,this.state.searchCount): this.currentPageReviewList(curPg,this.state.reviewList,this.state.count)
     this.setState({
       currentList
     })
   }
 
+  //help function to calculate current page index
   currentPageReviewList(curPg,reviewList,count){
     let beginIndex = (curPg - 1) * 7;
     let endingIndex = Math.min(beginIndex + 6,count-1);
     return reviewList.slice(beginIndex, endingIndex+1);
   }
 
-  //functions to render rating
+  //help function to render rating
   calculeteAverageRating(data){
     const ratingList =[...data];
     const length = ratingList.length;
@@ -136,7 +156,6 @@ class ReviewSection extends React.Component{
             searchCount={this.state.searchCount}
             searchValue={this.state.searchValue}
             clearSearchValue={this.clearSearchValue}
-
           />
         }
 
@@ -146,12 +165,14 @@ class ReviewSection extends React.Component{
             lastPage={this.state.lastPage}
             count={this.state.count}
             renderCurrentPage = {this.renderCurrentPage}
+            searchStatus = {this.state.searchStatus}
           />:
           <ReviewList
-            reviewList={this.state.searchedList}
+            reviewList={this.state.currentList}
             lastPage={this.state.lastPage}
-            count={this.state.count}
+            count={this.state.searchCount}
             renderCurrentPage = {this.renderCurrentPage}
+            searchStatus = {this.state.searchStatus}
           />
         }
       </div>

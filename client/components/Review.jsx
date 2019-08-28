@@ -13,10 +13,12 @@ class Review extends React.Component{
         <img src={this.props.data.profile}></img>
         <div>{this.props.data.name}</div>
         <div>{this.props.data.review_date}</div>
-        {this.props.data.comments.split(" ").length < 30 ? <div>{this.props.data.comments}</div>:<ReadMore comments = {this.props.data.comments}/>}
+        {!this.props.searchStatus || this.props.data.comments.split(" ").length < 30 ? <div>{this.props.data.comments}</div>:<ReadMore comments = {this.props.data.comments}/>}
       </div>
     )
   }
 }
+
+
 
 export default Review
