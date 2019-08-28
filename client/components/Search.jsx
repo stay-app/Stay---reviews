@@ -3,31 +3,26 @@ import React from 'react'
 class Search extends React.Component{
   constructor(props) {
     super(props)
-    this.state={
-      keyWords:""
-    }
-    this.changeHandler = this.changeHandler.bind(this);
-    this.submitHandler = this.submitHandler.bind(this)
 
+    this.changeHandler = this.changeHandler.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
   changeHandler({target}){
-    this.setState({
-      keyWords:target.value
-    })
+    this.props.changeSearchValue(target.value)
   }
 
   submitHandler(event){
     event.preventDefault()
-    console.log(this.state.keyWords)
+    this.props.submitSearchValue()
   }
 
   render(){
     return(
-        <form onSubmit={this.submitHandler} value={this.state.keyWords}>
+        <form onSubmit={this.submitHandler}>
           <input
             type="text"
-            value={this.state.keyWords}
+            value={this.props.searchValue}
             placeholder="Search reviews"
             onChange={this.changeHandler}
           />

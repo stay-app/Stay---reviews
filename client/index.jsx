@@ -2,14 +2,19 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ReviewList from './components/ReviewList.jsx';
-import Rating from './components/Rating.jsx'
+import Rating from './components/Rating.jsx';
+import Search from './components/Search.jsx';
+import SearchSummary from './components/SearchSummary.jsx';
 
 
 class ReviewSection extends React.Component{
   constructor(props) {
     super(props)
     this.state={
-      search:"",
+      searchStatus:true,
+      searchCount:7,
+      searchedList:[],
+      searchValue:"jinjing",
       hostID:56,
       reviewList:[],
       rating:{},
@@ -21,9 +26,13 @@ class ReviewSection extends React.Component{
 
     this.calculeteAverageRating = this.calculeteAverageRating.bind(this);
     this.currentPageReviewList = this.currentPageReviewList.bind(this);
-    this.renderCurrentPage = this.renderCurrentPage.bind(this)
+    this.renderCurrentPage = this.renderCurrentPage.bind(this);
+    this.clearSearchValue = this.clearSearchValue.bind(this);
+    this.submitSearchValue = this.submitSearchValue.bind(this);
+    this.changeSearchValue = this.changeSearchValue.bind(this)
   }
 
+  //setup for initial rendering
   componentDidMount(){
     $.get('/api/reviews',{host:this.state.hostID},(data) => {
       const rating = this.calculeteAverageRating(data);
@@ -42,6 +51,33 @@ class ReviewSection extends React.Component{
     })
   }
 
+  //functions related to search bar
+  submitSearchValue(){
+    if(this.state.searchValue !== "") {
+      console.log(this.state.searchValue)
+    }
+
+    // this.setState({
+    //   search:key
+    // })
+  }
+
+  changeSearchValue(value){
+    this.setState({
+      searchValue:value
+    })
+  }
+
+  clearSearchValue(){
+    this.setState({
+      searchStatus:false,
+      searchValue:"",
+      searchCount:0,
+      searchedList:[]
+    })
+  }
+
+  //functions to render reviews
   renderCurrentPage(curPg){
     const currentList = this.currentPageReviewList(curPg,this.state.reviewList,this.state.count)
     this.setState({
@@ -55,6 +91,7 @@ class ReviewSection extends React.Component{
     return reviewList.slice(beginIndex, endingIndex+1);
   }
 
+  //functions to render rating
   calculeteAverageRating(data){
     const ratingList =[...data];
     const length = ratingList.length;
@@ -84,13 +121,39 @@ class ReviewSection extends React.Component{
   render() {
     return (
       <div>
-        <Rating rating={this.state.rating}/>
-        <ReviewList
+        <div>
+          {this.state.rating.count} Reviews {this.state.rating.review}
+          <Search
+            searchValue={this.state.searchValue}
+            clearSearchValue={this.clearSearchValue}
+            changeSearchValue = {this.changeSearchValue}
+            submitSearchValue={this.submitSearchValue}
+          />
+        </div>
+        {!this.state.searchStatus?
+          <Rating rating={this.state.rating}/> :
+          <SearchSummary
+            searchCount={this.state.searchCount}
+            searchValue={this.state.searchValue}
+            clearSearchValue={this.clearSearchValue}
+
+          />
+        }
+
+        {!this.state.searchStatus?
+          <ReviewList
             reviewList={this.state.currentList}
             lastPage={this.state.lastPage}
             count={this.state.count}
             renderCurrentPage = {this.renderCurrentPage}
-        />
+          />:
+          <ReviewList
+            reviewList={this.state.searchedList}
+            lastPage={this.state.lastPage}
+            count={this.state.count}
+            renderCurrentPage = {this.renderCurrentPage}
+          />
+        }
       </div>
       )
   }
