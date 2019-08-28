@@ -52,13 +52,13 @@ class Page extends React.Component{
           {this.state.currentPage !== 1 && <input id="left" value="left" type="button" onClick={this.decreaseCurrentPg}/>}
 
           <input value={1} type="button" onClick={this.changeCurrentPg}/>
-          { this.state.currentPage === this.props.lastPage && <input value={this.props.lastPage - 2} type="button" onClick={this.changeCurrentPg}/>}
-          { this.state.currentPage === 4 && <input value={this.state.currentPage-2} type="button" onClick={this.changeCurrentPg}/>}
-          { this.state.currentPage >= 3 && <input value={this.state.currentPage-1} type="button" onClick={this.changeCurrentPg}/>}
+          { this.state.currentPage === this.props.lastPage && this.props.lastPage > 3 && <input value={this.props.lastPage - 2} type="button" onClick={this.changeCurrentPg}/>}
+          { this.state.currentPage === 4 && this.props.lastPage > 4 && <input value={this.state.currentPage-2} type="button" onClick={this.changeCurrentPg}/>}
+          { this.state.currentPage >= 3  && <input value={this.state.currentPage-1} type="button" onClick={this.changeCurrentPg}/>}
           { this.state.currentPage >= 2 && this.state.currentPage <= (this.props.lastPage -1) && <input value={this.state.currentPage} type="button" onClick={this.changeCurrentPg}/>}
           { this.state.currentPage <= (this.props.lastPage-2) && <input value={this.state.currentPage+1} type="button" onClick={this.changeCurrentPg}/>}
-          { this.state.currentPage === 1 && <input value={this.state.currentPage+2} type="button" onClick={this.changeCurrentPg}/>}
-          { this.state.currentPage === this.props.lastPage -3 && <input value={this.state.currentPage+2} type="button" onClick={this.changeCurrentPg}/>}
+          { this.state.currentPage === 1 && this.props.lastPage > 3 && <input value={this.state.currentPage+2} type="button" onClick={this.changeCurrentPg}/>}
+          { this.state.currentPage === this.props.lastPage -3 && this.props.lastPage > 4 && <input value={this.state.currentPage+2} type="button" onClick={this.changeCurrentPg}/>}
           <input value={this.props.lastPage} type="button" onClick={this.changeCurrentPg}/>
 
 

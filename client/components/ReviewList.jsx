@@ -12,11 +12,11 @@ class ReviewList extends React.Component{
     return(
       <div>
         {this.props.reviewList.map((data) => { return <Review data={data}/>})}
-        <Page
+        {this.props.lastPage > 1 && <Page
           renderCurrentPage={this.props.renderCurrentPage}
           lastPage = {this.props.lastPage}
           count={this.props.count}
-        />
+        /> }
       </div>
     )
   }

@@ -16,14 +16,14 @@ class Rating extends React.Component{
             {this.props.rating.count} Reviews {this.props.rating.review}
           </a> <Search/>
         </div>
-        <ul>
-          <li>{this.props.rating.rating_accuracy}</li>
-          <li>{this.props.rating.rating_communication}</li>
-          <li>{this.props.rating.rating_cleanliness}</li>
-          <li>{this.props.rating.rating_location}</li>
-          <li>{this.props.rating.rating_checkin}</li>
-          <li>{this.props.rating.rating_value}</li>
-        </ul>
+        <div>
+          <div>{this.props.rating.rating_accuracy}</div>
+          <div>{this.props.rating.rating_communication}</div>
+          <div>{this.props.rating.rating_cleanliness}</div>
+          <div>{this.props.rating.rating_location}</div>
+          <div>{this.props.rating.rating_checkin}</div>
+          <div>{this.props.rating.rating_value}</div>
+        </div>
       </div>
     )
   }

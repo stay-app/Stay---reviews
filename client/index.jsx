@@ -84,7 +84,6 @@ class ReviewSection extends React.Component{
   render() {
     return (
       <div>
-        <div>Summary</div>
         <Rating rating={this.state.rating}/>
         <ReviewList
             reviewList={this.state.currentList}
