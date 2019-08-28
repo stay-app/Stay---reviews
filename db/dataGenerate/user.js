@@ -11,7 +11,7 @@ const con = mysql.createConnection({
 
 con.connect();
 
-for( let i=0; i <600; i++) {
+for( let i=0; i <1000; i++) {
   let randomName = faker.name.findName();
   let randomrawprofile = faker.image.avatar();
 

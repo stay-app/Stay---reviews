@@ -1,28 +1,23 @@
 import React from 'react'
-import Review from './Review.jsx'
+import Review from './Review.jsx';
+import Page from './Page.jsx';
 
-class ReviewList extends React.Component{
-  constructor(props) {
-    super(props)
 
-    this.state={
-      reviewList:[
-        {
-          name:'Jinjing Bi',
-          review_date:'6/16',
-          comments:'It is a nice home. I love to stay there there again.'
-        }
-      ]
-    }
-  }
+const ReviewList = (props) => {
+  return(
+    <div>
+      {props.reviewList.map((data) => { return <Review data={data}/>})}
+      {props.lastPage > 1 && <Page
+        renderCurrentPage={props.renderCurrentPage}
+        lastPage={props.lastPage}
+        count={props.count}
+        searchStatus={props.searchStatus}
+        currentPage={props.currentPage}
+        changeCurrentPage={props.changeCurrentPage}
+      /> }
+    </div>
 
-  render(){
-    return(
-      <div>
-        {this.state.reviewList.map((data) => { return <Review data={data}/>})}
-      </div>
-    )
-  }
+  )
 }
 
 export default ReviewList

@@ -1,4 +1,4 @@
-/* insert review (2500) fake data */
+/* insert review (10000) fake data */
 
 const faker = require ('faker');
 const mysql = require('mysql');
@@ -12,7 +12,7 @@ const con = mysql.createConnection({
 
 con.connect();
 
-for( let i=0; i <2500; i++) {
+for( let i=0; i <10000; i++) {
   let randomDate = faker.date.past();
   let randomCommnet = faker.lorem.paragraph();
 
@@ -22,7 +22,7 @@ for( let i=0; i <2500; i++) {
   let location = Math.floor(Math.random()*6);
   let checkin = Math.floor(Math.random()*6);
   let value = Math.floor(Math.random()*6);
-  let stay = Math.floor(Math.random()*2700) + 1
+  let stay = Math.floor(Math.random()*10200) + 1
 
   const inputMessage = "INSERT INTO review set ?";
   const option = {

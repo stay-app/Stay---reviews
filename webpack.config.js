@@ -1,8 +1,13 @@
 module.exports = {
   mode: "development",
   entry: __dirname + '/client/index.jsx',
+  output: {
+   filename: 'bundle.js',
+   path: __dirname + '/public'
+  },
+
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
@@ -12,11 +17,9 @@ module.exports = {
             presets: ['@babel/preset-react', '@babel/preset-env']
           }
         }
-      }
+      },
+      {loader: 'file-loader', test: /\.(ttf|eot|svg)$/}
     ]
-  },
-   output: {
-    filename: 'bundle.js',
-    path: __dirname + '/public'
   }
 };
+
