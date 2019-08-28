@@ -6,7 +6,8 @@ class Search extends React.Component{
     this.state={
       keyWords:""
     }
-    this.changeHandler = this.changeHandler.bind(this)
+    this.changeHandler = this.changeHandler.bind(this);
+    this.submitHandler = this.submitHandler.bind(this)
 
   }
 
@@ -16,14 +17,21 @@ class Search extends React.Component{
     })
   }
 
+  submitHandler(event){
+    event.preventDefault()
+    console.log(this.state.keyWords)
+  }
+
   render(){
     return(
-      <a><input
-        type="text"
-        value={this.state.keyWords}
-        placeholder="Search reviews"
-        onChange={this.changeHandler}
-      /></a>
+        <form onSubmit={this.submitHandler} value={this.state.keyWords}>
+          <input
+            type="text"
+            value={this.state.keyWords}
+            placeholder="Search reviews"
+            onChange={this.changeHandler}
+          />
+        </form>
     )
   }
 }

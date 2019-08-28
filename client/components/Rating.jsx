@@ -12,9 +12,7 @@ class Rating extends React.Component{
     return(
       <div>
         <div>
-          <a>
-            {this.props.rating.count} Reviews {this.props.rating.review}
-          </a> <Search/>
+            {this.props.rating.count} Reviews {this.props.rating.review}<Search/>
         </div>
         <div>
           <div>{this.props.rating.rating_accuracy}</div>

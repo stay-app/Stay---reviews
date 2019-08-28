@@ -10,7 +10,7 @@ class ReviewSection extends React.Component{
     super(props)
     this.state={
       search:"",
-      hostID:87,
+      hostID:56,
       reviewList:[],
       rating:{},
       overallRate:0,
