@@ -7,7 +7,7 @@ import Search from './components/Search.jsx';
 import SearchSummary from './components/SearchSummary.jsx';
 
 
-class ReviewSection extends React.Component{
+class App extends React.Component{
   constructor(props) {
     super(props)
     this.state={
@@ -15,10 +15,9 @@ class ReviewSection extends React.Component{
       searchCount:7,
       searchedList:[],
       searchValue:"",
-      hostID:56,
+      hostID:97,
       reviewList:[],
       rating:{},
-      overallRate:0,
       lastPage:0,
       count:0,
       currentList:[],
@@ -61,7 +60,6 @@ class ReviewSection extends React.Component{
       let searchedList = this.calculateSearchList(keyWord);
       let searchCount = searchedList.length
       let lastPage = Math.ceil(searchCount / 7);
-
 
       this.setState({
         searchCount,
@@ -193,7 +191,8 @@ class ReviewSection extends React.Component{
   }
 }
 
+export default App;
 
-ReactDOM.render(
-  <ReviewSection/>, document.getElementById('app')
-)
+// ReactDOM.render(
+//   <App/>, document.getElementById('app')
+// )

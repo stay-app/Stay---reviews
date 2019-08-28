@@ -18,7 +18,7 @@ class SearchSummary extends React.Component{
               <a>{this.props.searchCount} guests have mentioned "{this.props.searchValue}"</a> :
               <a>None of guests have mentioned "{this.props.searchValue}"</a>
           }
-          <a onClick={this.backToAllHandler}>Back to all reviews</a>
+          <a id="back_to_all" onClick={this.backToAllHandler}>Back to all reviews</a>
         </div>
     )
   }
