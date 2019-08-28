@@ -1,24 +1,18 @@
 import React from 'react';
 import ReadMore from './ReadMore.jsx'
 
-class Review extends React.Component{
-  constructor(props) {
-    super(props)
 
-  }
+const Review = (props) => {
+  return(
+    <div>
+      <img src={props.data.profile}></img>
+      <div>{props.data.name}</div>
+      <div>{props.data.review_date}</div>
+      {!props.searchStatus && props.data.comments.split(" ").length > 30 ? <ReadMore comments = {props.data.comments}/> : <div>{props.data.comments}</div>}
+    </div>
 
-  render(){
-    return(
-      <div>
-        <img src={this.props.data.profile}></img>
-        <div>{this.props.data.name}</div>
-        <div>{this.props.data.review_date}</div>
-        {!this.props.searchStatus || this.props.data.comments.split(" ").length < 30 ? <div>{this.props.data.comments}</div>:<ReadMore comments = {this.props.data.comments}/>}
-      </div>
-    )
-  }
+  )
 }
-
 
 
 export default Review

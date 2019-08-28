@@ -10,7 +10,6 @@ class ReadMore extends React.Component{
     }
 
     this.expandHandler = this.expandHandler.bind(this)
-
   }
 
   expandHandler(){

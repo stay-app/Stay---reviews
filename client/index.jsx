@@ -14,14 +14,15 @@ class ReviewSection extends React.Component{
       searchStatus:false,
       searchCount:7,
       searchedList:[],
-      searchValue:"jinjing",
+      searchValue:"",
       hostID:56,
       reviewList:[],
       rating:{},
       overallRate:0,
       lastPage:0,
       count:0,
-      currentList:[]
+      currentList:[],
+      currentPage:1
     }
 
     this.calculeteAverageRating = this.calculeteAverageRating.bind(this);
@@ -30,7 +31,8 @@ class ReviewSection extends React.Component{
     this.clearSearchValue = this.clearSearchValue.bind(this);
     this.submitSearchValue = this.submitSearchValue.bind(this);
     this.changeSearchValue = this.changeSearchValue.bind(this);
-    this.calculateSearchList = this. calculateSearchList.bind(this)
+    this.calculateSearchList = this. calculateSearchList.bind(this);
+    this.changeCurrentPage = this.changeCurrentPage.bind(this)
   }
 
   //setup for initial rendering
@@ -62,10 +64,11 @@ class ReviewSection extends React.Component{
 
 
       this.setState({
-        searchStatus:true,
         searchCount,
         searchedList,
-        lastPage
+        lastPage,
+        searchStatus:true,
+        currentPage:1
       })
     }
   }
@@ -83,7 +86,8 @@ class ReviewSection extends React.Component{
       searchStatus:false,
       searchValue:"",
       searchCount:0,
-      searchedList:[]
+      searchedList:[],
+      currentPage:1
     })
   }
 
@@ -102,6 +106,10 @@ class ReviewSection extends React.Component{
     this.setState({
       currentList
     })
+  }
+
+  changeCurrentPage(currentPg){
+    this.setState({currentPage:currentPg})
   }
 
   //help function to calculate current page index
@@ -164,16 +172,21 @@ class ReviewSection extends React.Component{
             reviewList={this.state.currentList}
             lastPage={this.state.lastPage}
             count={this.state.count}
+            currentPage={this.state.currentPage}
             renderCurrentPage = {this.renderCurrentPage}
             searchStatus = {this.state.searchStatus}
+            changeCurrentPage = {this.changeCurrentPage}
           />:
-          <ReviewList
+          (this.state.searchCount > 0 &&
+           <ReviewList
             reviewList={this.state.currentList}
             lastPage={this.state.lastPage}
             count={this.state.searchCount}
+            currentPage={this.state.currentPage}
             renderCurrentPage = {this.renderCurrentPage}
             searchStatus = {this.state.searchStatus}
-          />
+            changeCurrentPage = {this.changeCurrentPage}
+           />)
         }
       </div>
       )
