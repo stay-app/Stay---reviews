@@ -7,30 +7,30 @@ class Page extends React.Component{
 
     this.state={
       currentPage:1,
-      currentArray:[]
     }
 
     this.increaseCurrentPg = this.increaseCurrentPg.bind(this);
-    this.decreaseCurrentPg = this.decreaseCurrentPg.bind(this)
-
+    this.decreaseCurrentPg = this.decreaseCurrentPg.bind(this);
+    this.changeCurrentPg = this.changeCurrentPg.bind(this)
   }
 
-  // generateCurrentPgArray(currentPage){
-  //   this.setState({
-  //     currentArray:[currentPage-1,currentPage,currentPage+1]
-  //   })
-  // }
+
+  changeCurrentPg({target}){
+    let newCurrent = Number(target.value);
+    this.setState({
+      currentPage:newCurrent
+    })
+    this.props.renderCurrentPage(newCurrent)
+  }
 
   increaseCurrentPg(){
     if(this.state.currentPage < this.props.lastPage) {
-      let oldCurrent = this.state.currentPage;
-      let newCurrent = oldCurrent + 1;
+      const oldCurrent = this.state.currentPage;
+      const newCurrent = oldCurrent + 1;
       this.setState({
         currentPage:newCurrent
       })
-
       this.props.renderCurrentPage(newCurrent)
-      console.log('hit',newCurrent)
     }
   }
 
@@ -41,9 +41,7 @@ class Page extends React.Component{
       this.setState({
         currentPage:newCurrent
       })
-
       this.props.renderCurrentPage(newCurrent)
-      console.log('hit',newCurrent)
     }
   }
 
@@ -53,15 +51,16 @@ class Page extends React.Component{
       <form>
           {this.state.currentPage !== 1 && <input id="left" value="left" type="button" onClick={this.decreaseCurrentPg}/>}
 
-          <input value={1} type="button"/>
-          { this.state.currentPage === this.props.lastPage && <input value={this.props.lastPage - 2} type="button"/>}
-          { this.state.currentPage === 4 && <input value={this.state.currentPage-2} type="button"/>}
-          { this.state.currentPage >= 3 && <input value={this.state.currentPage-1} type="button"/>}
-          { this.state.currentPage >= 2 && this.state.currentPage <= (this.props.lastPage -1) && <input value={this.state.currentPage} type="button"/>}
-          { this.state.currentPage <= (this.props.lastPage-2) && <input value={this.state.currentPage+1} type="button"/>}
-          { this.state.currentPage === 1 && <input value={this.state.currentPage+2} type="button"/>}
-          { this.state.currentPage === this.props.lastPage -3 && <input value={this.state.currentPage+2} type="button"/>}
-          <input value={this.props.lastPage} type="button"/>
+          <input value={1} type="button" onClick={this.changeCurrentPg}/>
+          { this.state.currentPage === this.props.lastPage && <input value={this.props.lastPage - 2} type="button" onClick={this.changeCurrentPg}/>}
+          { this.state.currentPage === 4 && <input value={this.state.currentPage-2} type="button" onClick={this.changeCurrentPg}/>}
+          { this.state.currentPage >= 3 && <input value={this.state.currentPage-1} type="button" onClick={this.changeCurrentPg}/>}
+          { this.state.currentPage >= 2 && this.state.currentPage <= (this.props.lastPage -1) && <input value={this.state.currentPage} type="button" onClick={this.changeCurrentPg}/>}
+          { this.state.currentPage <= (this.props.lastPage-2) && <input value={this.state.currentPage+1} type="button" onClick={this.changeCurrentPg}/>}
+          { this.state.currentPage === 1 && <input value={this.state.currentPage+2} type="button" onClick={this.changeCurrentPg}/>}
+          { this.state.currentPage === this.props.lastPage -3 && <input value={this.state.currentPage+2} type="button" onClick={this.changeCurrentPg}/>}
+          <input value={this.props.lastPage} type="button" onClick={this.changeCurrentPg}/>
+
 
           {this.state.currentPage !== this.props.lastPage && <input id="right" value="right" type="button" onClick={this.increaseCurrentPg}/>}
       </form>
