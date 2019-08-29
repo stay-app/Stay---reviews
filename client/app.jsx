@@ -11,10 +11,10 @@ class App extends React.Component{
     super(props)
     this.state={
       searchStatus:false,
-      searchCount:7,
+      searchCount:0,
       searchedList:[],
       searchValue:"",
-      hostID:97,
+      hostID:70,
       reviewList:[],
       rating:{},
       lastPage:0,
@@ -175,7 +175,7 @@ class App extends React.Component{
             changeCurrentPage = {this.changeCurrentPage}
           />:
           (this.state.searchCount > 0 &&
-           <ReviewList
+          <ReviewList
             reviewList={this.state.currentList}
             lastPage={this.state.lastPage}
             count={this.state.searchCount}
@@ -183,7 +183,7 @@ class App extends React.Component{
             renderCurrentPage = {this.renderCurrentPage}
             searchStatus = {this.state.searchStatus}
             changeCurrentPage = {this.changeCurrentPage}
-           />)
+          />)
         }
       </div>
       )
