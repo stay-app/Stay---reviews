@@ -14,7 +14,8 @@ module.exports = {
           ],
           plugins: [
               '@babel/plugin-syntax-dynamic-import',
-              '@babel/plugin-proposal-class-properties'
+              '@babel/plugin-proposal-class-properties',
+              "babel-plugin-styled-components"
           ]
       },
       production: {
@@ -25,7 +26,8 @@ module.exports = {
           ],
           plugins: [
               '@babel/plugin-syntax-dynamic-import',
-              '@babel/plugin-proposal-class-properties'
+              '@babel/plugin-proposal-class-properties',
+              "babel-plugin-styled-components"
           ]
       },
       development: {
@@ -36,7 +38,8 @@ module.exports = {
           ],
           plugins: [
               '@babel/plugin-syntax-dynamic-import',
-              '@babel/plugin-proposal-class-properties'
+              '@babel/plugin-proposal-class-properties',
+              "babel-plugin-styled-components"
           ]
       }
   }
