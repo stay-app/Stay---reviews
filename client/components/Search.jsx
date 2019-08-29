@@ -19,8 +19,9 @@ class Search extends React.Component{
 
   render(){
     return(
-        <form onSubmit={this.submitHandler}>
+        <form id="search_bar" onSubmit={this.submitHandler}>
           <input
+            id="search_text"
             type="text"
             value={this.props.searchValue}
             placeholder="Search reviews"
