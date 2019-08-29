@@ -25,29 +25,3 @@ exports[`app rendering renders without crashing 1`] = `
   />
 </div>
 `;
-
-exports[`app renders without crashing 1`] = `
-<div>
-  <div>
-     Reviews 
-    <Search
-      changeSearchValue={[Function]}
-      clearSearchValue={[Function]}
-      searchValue=""
-      submitSearchValue={[Function]}
-    />
-  </div>
-  <Rating
-    rating={Object {}}
-  />
-  <ReviewList
-    changeCurrentPage={[Function]}
-    count={0}
-    currentPage={1}
-    lastPage={0}
-    renderCurrentPage={[Function]}
-    reviewList={Array []}
-    searchStatus={false}
-  />
-</div>
-`;

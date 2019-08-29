@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ReviewList from './components/ReviewList.jsx';
 import Rating from './components/Rating.jsx';
@@ -193,6 +192,3 @@ class App extends React.Component{
 
 export default App;
 
-// ReactDOM.render(
-//   <App/>, document.getElementById('app')
-// )

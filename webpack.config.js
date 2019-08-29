@@ -1,6 +1,6 @@
 module.exports = {
   mode: "development",
-  entry: __dirname + '/client/app.jsx',
+  entry: __dirname + '/client/index.jsx',
   output: {
    filename: 'bundle.js',
    path: __dirname + '/public'
