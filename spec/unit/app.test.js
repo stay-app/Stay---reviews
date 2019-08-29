@@ -69,7 +69,7 @@ describe('app function invokation', () => {
     expect(wrapper.state('searchValue')).toEqual('hi')
   });
 
-  it('renderCurrentPage changes the state values properly with search status is true when the function is invoked', () => {
+  it('renderCurrentPage changes the state values properly with the search status of true when the function is invoked', () => {
     const wrapper = shallow(<App/>);
     wrapper.setState({
       searchStatus:true,
@@ -84,7 +84,7 @@ describe('app function invokation', () => {
     expect(wrapper.state('currentList').length).toEqual(3)
   });
 
-  it('renderCurrentPage changes the state values properly with search status is false when the function is invoked', () => {
+  it('renderCurrentPage changes the state values properly with the search status of false when the function is invoked', () => {
     const wrapper = shallow(<App/>);
     wrapper.setState({
       searchStatus:false,
@@ -97,6 +97,26 @@ describe('app function invokation', () => {
     wrapper.instance().renderCurrentPage(1);
 
     expect(wrapper.state('currentList').length).toEqual(4)
+  });
+
+  it('calculeteAverageRating changes the state values properly when the function is invoked', () => {
+    const wrapper = shallow(<App/>);
+    wrapper.setState({
+      rating:0,
+    });
+    const data = [{
+      rating_accuracy:4,
+      rating_communication:5,
+      rating_cleanliness:4,
+      rating_location:5,
+      rating_checkin:3,
+      rating_value:3
+    }]
+    const rating = wrapper.instance().calculeteAverageRating(data);
+    wrapper.setState({rating})
+
+    expect(wrapper.state('rating').count).toEqual(1)
+    expect(wrapper.state('rating').review).toEqual(4)
   });
 
 })
