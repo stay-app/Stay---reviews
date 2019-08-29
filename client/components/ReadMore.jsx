@@ -22,8 +22,8 @@ class ReadMore extends React.Component{
 
   render(){
     return(
-       this.state.expand? <div>{this.props.comments}</div>:
-        <div>
+       this.state.expand? <div className="read_more">{this.props.comments}</div>:
+        <div className="read_more">
           <a>{this.props.comments.split(" ").slice(0,30).join(" ") + "..."}</a><a onClick={this.expandHandler}>Read more</a>
         </div>
     )

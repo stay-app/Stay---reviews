@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchSummary renders without crashing when there is a search result 1`] = `
+<div>
+  <a>
+    5
+     guests have mentioned "
+    hello
+    "
+  </a>
+  <a
+    id="back_to_all"
+    onClick={[Function]}
+  >
+    Back to all reviews
+  </a>
+</div>
+`;
+
+exports[`SearchSummary renders without crashing when there is no search result 1`] = `
+<div>
+  <a>
+    None of guests have mentioned "
+    hello
+    "
+  </a>
+  <a
+    id="back_to_all"
+    onClick={[Function]}
+  >
+    Back to all reviews
+  </a>
+</div>
+`;

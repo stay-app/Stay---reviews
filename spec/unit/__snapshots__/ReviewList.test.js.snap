@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewList renders without crashing when more than one page 1`] = `
+<div>
+  <Review
+    data={
+      Object {
+        "comments": "it is good",
+        "name": "jinjing",
+        "profile": "https://s3.amazonaws.com/uifaces/faces/twitter/maxlinderman/128.jpg",
+        "review_data": "3/14/19",
+      }
+    }
+  />
+  <Review
+    data={
+      Object {
+        "comments": "great",
+        "name": "derek",
+        "profile": "https://s3.amazonaws.com/uifaces/faces/twitter/maxlinderman/129.jpg",
+        "review_data": "3/20/19",
+      }
+    }
+  />
+  <Page
+    changeCurrentPage={[Function]}
+    currentPage={1}
+    lastPage={2}
+    renderCurrentPage={[Function]}
+    searchStatus={false}
+  />
+</div>
+`;
+
+exports[`ReviewList renders without crashing when only one page 1`] = `
+<div>
+  <Review
+    data={
+      Object {
+        "comments": "it is good",
+        "name": "jinjing",
+        "profile": "https://s3.amazonaws.com/uifaces/faces/twitter/maxlinderman/128.jpg",
+        "review_data": "3/14/19",
+      }
+    }
+  />
+  <Review
+    data={
+      Object {
+        "comments": "great",
+        "name": "derek",
+        "profile": "https://s3.amazonaws.com/uifaces/faces/twitter/maxlinderman/129.jpg",
+        "review_data": "3/20/19",
+      }
+    }
+  />
+</div>
+`;
