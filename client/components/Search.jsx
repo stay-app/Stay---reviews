@@ -19,7 +19,7 @@ class Search extends React.Component{
 
   render(){
     return(
-        <form id="search_bar" onSubmit={this.submitHandler}>
+        <form onSubmit={this.submitHandler}>
           <input
             id="search_text"
             type="text"
