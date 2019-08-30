@@ -1,4 +1,14 @@
 import React from 'react';
+import styled from 'styled-components'
+
+const Read_More = styled.a`
+  font:inherit
+  color:#008489
+  cursor: pointer
+  background: transparent
+  -webkit-font-smoothing: antialiase
+`;
+
 
 
 class ReadMore extends React.Component{
@@ -24,7 +34,7 @@ class ReadMore extends React.Component{
     return(
        this.state.expand? <div id="read_more_false">{this.props.comments}</div>:
         <div id="read_more_true">
-          <a>{this.props.comments.split(" ").slice(0,30).join(" ") + "..."}</a><a id="read_more_button" onClick={this.expandHandler}>Read more</a>
+          <a>{this.props.comments.split(" ").slice(0,20).join(" ") + "..."}</a><Read_More id="read_more_button" onClick={this.expandHandler} style={{}}>Read more</Read_More>
         </div>
     )
   }

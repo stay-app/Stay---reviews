@@ -4,22 +4,12 @@ import moment from 'moment';
 import styled from 'styled-components'
 
 const Review_profile = styled.div`
-  margin-left: 10%
-  margin-right:40%
-
-  font-size: 14px;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
-  line-height: 1.43;
-  color: #484848;
-  background-color: #fff;
   box-sizing: border-box;
   border-bottom: 1px ridge lightgrey
-
 `;
 
 const Review_content = styled.div`
   margin-bottom:30px;
-
 `;
 
 const Profile = styled.div`
@@ -28,19 +18,17 @@ const Profile = styled.div`
   margin-top:20px;
   margin-bottom:17px
 `;
+
 const ProfileTitle = styled.div`
   display:inline-block;
   margin-left:20px;
-
 `;
 
 const ProfileImg = styled.img`
-align-items: flex-start;
-display:inline-block;
+  display:inline-block;
   height:48px;
   border-Radius:50%
 `
-
 const Review = (props) => {
   return(
     <Review_profile>
