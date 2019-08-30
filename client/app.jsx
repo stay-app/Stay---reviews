@@ -7,7 +7,7 @@ import SearchSummary from './components/SearchSummary.jsx';
 import styled from 'styled-components'
 
 const Review_background = styled.div`
-  margin-left: 10%
+  margin-left: 18%
   margin-right:40%
   font-size: 14px;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
@@ -25,7 +25,7 @@ class App extends React.Component{
       searchCount:0,
       searchedList:[],
       searchValue:"",
-      hostID:70,
+      hostID:79,
       reviewList:[],
       rating:{},
       lastPage:0,
