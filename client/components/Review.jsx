@@ -4,7 +4,6 @@ import moment from 'moment';
 import styled from 'styled-components'
 
 const Review_profile = styled.div`
-
   box-sizing: border-box;
   border-bottom: 1px ridge lightgrey
 `;

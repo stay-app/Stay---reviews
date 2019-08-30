@@ -1,31 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Review renders without crashing 1`] = `
-<div>
-  <img
-    src="https://s3.amazonaws.com/uifaces/faces/twitter/maxlinderman/128.jpg"
-  />
-  <div>
-    jinjing
-  </div>
-  <div />
-  <div>
-    it is good
-  </div>
-</div>
+<Review__Review_profile>
+  <Review__Profile>
+    <Review__ProfileImg
+      src="https://s3.amazonaws.com/uifaces/faces/twitter/maxlinderman/128.jpg"
+    />
+    <Review__ProfileTitle>
+      <div
+        style={
+          Object {
+            "fontWeight": "bold",
+            "marginBottom": "3px",
+          }
+        }
+      >
+        jinjing
+      </div>
+      <div>
+        August 2019
+      </div>
+    </Review__ProfileTitle>
+  </Review__Profile>
+  <Review__Review_content>
+    <div>
+      it is good
+    </div>
+  </Review__Review_content>
+</Review__Review_profile>
 `;
 
 exports[`Review_ReadMore Render ReadMore component when comments has over 30 words 1`] = `
-<div>
-  <img
-    src="https://s3.amazonaws.com/uifaces/faces/twitter/maxlinderman/128.jpg"
-  />
-  <div>
-    jinjing
-  </div>
-  <div />
-  <ReadMore
-    comments="Necessitatibus dolorem eius nemo odit aut quisquam natus. Quam ullam vitae fugit amet. Aut sequi repudiandae voluptas. Ducimus velit sequi iusto nemo ad accusantium et molestias. Atque quibusdam iste doloremque ea. In sint sed voluptatem unde fghj rdftyg drtf ghj ftyg hjk rytu"
-  />
-</div>
+<Review__Review_profile>
+  <Review__Profile>
+    <Review__ProfileImg
+      src="https://s3.amazonaws.com/uifaces/faces/twitter/maxlinderman/128.jpg"
+    />
+    <Review__ProfileTitle>
+      <div
+        style={
+          Object {
+            "fontWeight": "bold",
+            "marginBottom": "3px",
+          }
+        }
+      >
+        jinjing
+      </div>
+      <div>
+        August 2019
+      </div>
+    </Review__ProfileTitle>
+  </Review__Profile>
+  <Review__Review_content>
+    <ReadMore
+      comments="Necessitatibus dolorem eius nemo odit aut quisquam natus. Quam ullam vitae fugit amet. Aut sequi repudiandae voluptas. Ducimus velit sequi iusto nemo ad accusantium et molestias. Atque quibusdam iste doloremque ea. In sint sed voluptatem unde fghj rdftyg drtf ghj ftyg hjk rytu"
+    />
+  </Review__Review_content>
+</Review__Review_profile>
 `;

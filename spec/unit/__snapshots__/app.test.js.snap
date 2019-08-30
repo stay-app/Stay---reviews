@@ -1,17 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`app rendering renders without crashing 1`] = `
-<div>
-  <div>
-     Reviews 
-    <Search
-      changeSearchValue={[Function]}
-      clearSearchValue={[Function]}
-      searchValue=""
-      submitSearchValue={[Function]}
-    />
+<app__Review_background>
+  <div
+    style={
+      Object {
+        "borderBottom": "1px ridge lightgrey",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "display": "inline-flex",
+        }
+      }
+    >
+      <h2>
+         Reviews
+      </h2>
+      <h2
+        style={
+          Object {
+            "marginLeft": "18px",
+          }
+        }
+      >
+        <NewRating />
+      </h2>
+      <h2
+        style={
+          Object {
+            "marginLeft": "220px",
+          }
+        }
+      >
+        <Search
+          changeSearchValue={[Function]}
+          clearSearchValue={[Function]}
+          searchValue=""
+          submitSearchValue={[Function]}
+        />
+      </h2>
+    </div>
   </div>
-  <Rating
+  <RatingComp
     rating={Object {}}
   />
   <ReviewList
@@ -23,5 +56,5 @@ exports[`app rendering renders without crashing 1`] = `
     reviewList={Array []}
     searchStatus={false}
   />
-</div>
+</app__Review_background>
 `;

@@ -4,7 +4,11 @@ import ReviewList from './components/ReviewList.jsx';
 import RatingComp from './components/Rating.jsx';
 import Search from './components/Search.jsx';
 import SearchSummary from './components/SearchSummary.jsx';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Ratings from 'react-ratings-declarative';
+
+
+
 
 const Review_background = styled.div`
   margin-left: 18%
@@ -16,6 +20,23 @@ const Review_background = styled.div`
   background-color: #fff;
 `;
 
+
+const NewRating = ({newRating})=>{
+  return(
+    <Ratings
+    rating={newRating}
+    widgetRatedColors="#008489"
+    widgetDimensions="18.5px"
+    widgetSpacings='1px'
+   >
+    <Ratings.Widget/>
+    <Ratings.Widget/>
+    <Ratings.Widget/>
+    <Ratings.Widget/>
+    <Ratings.Widget/>
+   </Ratings>
+  )
+}
 
 class App extends React.Component{
   constructor(props) {
@@ -157,14 +178,23 @@ class App extends React.Component{
   render() {
     return (
       <Review_background>
-        <div>
-          {this.state.rating.count} Reviews {this.state.rating.review}
-          <Search
-            searchValue={this.state.searchValue}
-            clearSearchValue={this.clearSearchValue}
-            changeSearchValue = {this.changeSearchValue}
-            submitSearchValue={this.submitSearchValue}
-          />
+        <div style={{borderBottom: `1px ridge lightgrey`}}>
+          <div style={{display:`inline-flex`}}>
+            <h2>
+              {this.state.rating.count} Reviews
+            </h2>
+            <h2 style={{marginLeft:`18px`}}>
+              <NewRating newRating={this.state.rating.review}/>
+            </h2>
+            <h2 style={{marginLeft:`220px`}}>
+              <Search
+                searchValue={this.state.searchValue}
+                clearSearchValue={this.clearSearchValue}
+                changeSearchValue = {this.changeSearchValue}
+                submitSearchValue={this.submitSearchValue}
+              />
+            </h2>
+          </div>
         </div>
         {!this.state.searchStatus?
           <RatingComp rating={this.state.rating}/> :

@@ -22,7 +22,6 @@ const Rating_column_description_1 = styled.div`
 const Rating_column_description_2 = styled.div`
   display:block
   text-align: left;
-
 `;
 
 const Rating_column_rating_1 = styled.div`
@@ -33,10 +32,9 @@ const Rating_column_rating_1 = styled.div`
 
 const Rating_column_rating_2 = styled.div`
   display:block;
-  text-align: right;
+  align: right;
   margin-left:25%
 `;
-
 
 const Rating_category = styled.div`
   line-height: 1.75em
@@ -50,12 +48,10 @@ const Rating_category = styled.div`
 const Rating_star = styled.div`
   width: 110px;
   margin:6px
-
 `;
 
 
 const NewRating = ({newRating})=>{
-
   return(
     <Ratings
     rating={newRating}
@@ -76,7 +72,6 @@ const NewRating = ({newRating})=>{
 const RatingComp = ({rating}) => {
   return(
     <Rating_section>
-
       <Rating_column>
         <Rating_column_description_1>
           <Rating_category>Accuracy </Rating_category>
