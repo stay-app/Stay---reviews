@@ -183,7 +183,7 @@ class App extends React.Component{
             <h2>
               {this.state.rating.count} Reviews
             </h2>
-            <h2 style={{marginLeft:`18px`}}>
+            <h2 style={{marginLeft:`15px`}}>
               <NewRating newRating={this.state.rating.review}/>
             </h2>
           </div>
