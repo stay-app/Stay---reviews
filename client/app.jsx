@@ -11,7 +11,7 @@ import Ratings from 'react-ratings-declarative';
 
 
 const Review_background = styled.div`
-  margin-left: 18%
+  margin-left: 15%
   margin-right:40%
   font-size: 14px;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
@@ -178,7 +178,7 @@ class App extends React.Component{
   render() {
     return (
       <Review_background>
-        <div style={{borderBottom: `1px ridge lightgrey`}}>
+        <div style={{borderBottom: `1px ridge lightgrey`, display:`flex`, justifyContent: `space-between`}}>
           <div style={{display:`inline-flex`}}>
             <h2>
               {this.state.rating.count} Reviews
@@ -186,6 +186,7 @@ class App extends React.Component{
             <h2 style={{marginLeft:`18px`}}>
               <NewRating newRating={this.state.rating.review}/>
             </h2>
+          </div>
             <h2 style={{marginLeft:`220px`}}>
               <Search
                 searchValue={this.state.searchValue}
@@ -194,7 +195,6 @@ class App extends React.Component{
                 submitSearchValue={this.submitSearchValue}
               />
             </h2>
-          </div>
         </div>
         {!this.state.searchStatus?
           <RatingComp rating={this.state.rating}/> :
