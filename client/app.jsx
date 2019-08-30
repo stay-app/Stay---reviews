@@ -89,15 +89,18 @@ class App extends React.Component{
     if(this.state.searchValue !== "") {
       let keyWord = this.state.searchValue;
       let searchedList = this.calculateSearchList(keyWord);
+      console.log('check the list',searchedList)
       let searchCount = searchedList.length
       let lastPage = Math.ceil(searchCount / 7);
+      let currentList =this.currentPageReviewList(1,searchedList,searchCount)
 
       this.setState({
         searchCount,
         searchedList,
         lastPage,
+        currentList,
+        currentPage:1,
         searchStatus:true,
-        currentPage:1
       })
     }
   }
@@ -110,8 +113,10 @@ class App extends React.Component{
 
   clearSearchValue(){
     const lastPage = Math.ceil(this.state.count / 7);
+    let currentList =this.currentPageReviewList(1,this.state.reviewList,this.state.count)
     this.setState({
       lastPage,
+      currentList,
       searchStatus:false,
       searchValue:"",
       searchCount:0,
