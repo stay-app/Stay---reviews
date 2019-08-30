@@ -23,23 +23,17 @@ const Search_box = styled.form`
     outline:1px solid #008489
 `;
 
+const Search_close_icon_content = styled.a`
+  font-family:Arial Unicode MS
+  cursor: pointer
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  font-size:16px;
+  color:lightgray
+  font-weight:lighter;
+`;
 
-{/* <svg
-viewBox="0 0 24 24"
-role="presentation"
-aria-hidden="true"
-focusable="false"
-style="height: 1em; width: 1em; display: block; fill: currentcolor;"
-></svg> */}
-
-// const customStyles = {
-//   control: (base, state) => ({
-//     ...base,
-//     borderColor: state.isFocused
-//       ? 'red'
-//       : 'yellow'
-//   })
-// };
 
 class Search extends React.Component{
   constructor(props) {
@@ -49,23 +43,20 @@ class Search extends React.Component{
 
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+    this.clickHandler = this.clickHandler.bind(this)
   }
 
   changeHandler({target}){
     this.props.changeSearchValue(target.value)
   }
 
-  // focusHandler(){
-  //   // event.preventDefault()
-  //   this.setState({
-
-  //   })
-  // }
-
-
   submitHandler(event){
     event.preventDefault()
     this.props.submitSearchValue()
+  }
+
+  clickHandler(event){
+    this.props.clearSearchValue()
   }
 
   render(){
@@ -79,6 +70,9 @@ class Search extends React.Component{
             placeholder="Search reviews"
             onChange={this.changeHandler}
           />
+          {this.props.searchValue && <Search_close_icon_content
+            onClick={this.clickHandler}
+          >X</Search_close_icon_content>}
         </Search_box>
     )
   }
