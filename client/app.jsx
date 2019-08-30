@@ -1,7 +1,7 @@
 import React from 'react'
 import $ from 'jquery';
 import ReviewList from './components/ReviewList.jsx';
-import Rating from './components/Rating.jsx';
+import RatingComp from './components/Rating.jsx';
 import Search from './components/Search.jsx';
 import SearchSummary from './components/SearchSummary.jsx';
 import styled from 'styled-components'
@@ -167,7 +167,7 @@ class App extends React.Component{
           />
         </div>
         {!this.state.searchStatus?
-          <Rating rating={this.state.rating}/> :
+          <RatingComp rating={this.state.rating}/> :
           <SearchSummary
             searchCount={this.state.searchCount}
             searchValue={this.state.searchValue}
