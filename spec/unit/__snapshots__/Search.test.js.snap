@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search renders without crashing 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <input
+    id="search_text"
+    onChange={[Function]}
+    placeholder="Search reviews"
+    type="text"
+    value="hello"
+  />
+</form>
+`;

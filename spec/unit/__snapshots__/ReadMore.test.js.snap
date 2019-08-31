@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search renders without crashing when expand is false 1`] = `
+<div
+  id="read_more_true"
+>
+  <a>
+    erw qertr fshfs era fsgfdhf gfg eyrrw...
+  </a>
+  <ReadMore__Read_More
+    id="read_more_button"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    Read more
+  </ReadMore__Read_More>
+</div>
+`;
+
+exports[`Search renders without crashing when expand is true 1`] = `
+<div
+  id="read_more_true"
+>
+  <a>
+    erw qertr fshfs era fsgfdhf gfg eyrrw qetewr dg jkl eqt jkl yu jk fghjk kl; hjk hnjmk, ghj hjk...
+  </a>
+  <ReadMore__Read_More
+    id="read_more_button"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    Read more
+  </ReadMore__Read_More>
+</div>
+`;

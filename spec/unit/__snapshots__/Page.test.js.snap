@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page renders without crashing 1`] = `
+<form>
+  <input
+    id="left"
+    onClick={[Function]}
+    type="button"
+    value="left"
+  />
+  <input
+    className="pg"
+    onClick={[Function]}
+    type="button"
+    value={1}
+  />
+  <input
+    className="pg"
+    onClick={[Function]}
+    type="button"
+    value={2}
+  />
+  <input
+    className="pg"
+    onClick={[Function]}
+    type="button"
+    value={3}
+  />
+  <input
+    className="pg"
+    onClick={[Function]}
+    type="button"
+    value={4}
+  />
+  <a>
+    ...
+  </a>
+  <input
+    className="pg"
+    onClick={[Function]}
+    type="button"
+    value={10}
+  />
+  <input
+    id="right"
+    onClick={[Function]}
+    type="button"
+    value="right"
+  />
+</form>
+`;

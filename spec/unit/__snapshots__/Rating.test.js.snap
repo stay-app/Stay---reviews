@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rating renders without crashing 1`] = `
+<Rating__Rating_section>
+  <Rating__Rating_column>
+    <Rating__Rating_column_description_1>
+      <Rating__Rating_category>
+        Accuracy 
+      </Rating__Rating_category>
+      <Rating__Rating_category>
+        Communication
+      </Rating__Rating_category>
+      <Rating__Rating_category>
+        Cleanliness 
+      </Rating__Rating_category>
+    </Rating__Rating_column_description_1>
+    <Rating__Rating_column_rating_1>
+      <Rating__Rating_star>
+        <NewRating
+          newRating={5}
+        />
+      </Rating__Rating_star>
+      <Rating__Rating_star>
+        <NewRating
+          newRating={4.5}
+        />
+      </Rating__Rating_star>
+      <Rating__Rating_star>
+        <NewRating
+          newRating={4}
+        />
+      </Rating__Rating_star>
+    </Rating__Rating_column_rating_1>
+  </Rating__Rating_column>
+  <Rating__Rating_column>
+    <Rating__Rating_column_description_2>
+      <Rating__Rating_category>
+        Location 
+      </Rating__Rating_category>
+      <Rating__Rating_category>
+        Check-in 
+      </Rating__Rating_category>
+      <Rating__Rating_category>
+        Value 
+      </Rating__Rating_category>
+    </Rating__Rating_column_description_2>
+    <Rating__Rating_column_rating_2>
+      <Rating__Rating_star>
+        <NewRating
+          newRating={5}
+        />
+      </Rating__Rating_star>
+      <Rating__Rating_star>
+        <NewRating
+          newRating={4.5}
+        />
+      </Rating__Rating_star>
+      <Rating__Rating_star>
+        <NewRating
+          newRating={4}
+        />
+      </Rating__Rating_star>
+    </Rating__Rating_column_rating_2>
+  </Rating__Rating_column>
+</Rating__Rating_section>
+`;
