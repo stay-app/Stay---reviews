@@ -11,8 +11,8 @@ import Ratings from 'react-ratings-declarative';
 
 
 const Review_background = styled.div`
-  margin-left: 15%
-  margin-right:40%
+  margin-left: 15%;
+  margin-right:40%;
   font-size: 14px;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   line-height: 1.43;
@@ -46,7 +46,7 @@ class App extends React.Component{
       searchCount:0,
       searchedList:[],
       searchValue:"",
-      hostID:89,
+      hostID:69,
       reviewList:[],
       rating:{},
       lastPage:0,
@@ -73,12 +73,15 @@ class App extends React.Component{
       const lastPage = Math.ceil(count / 7);
       const currentList = this.currentPageReviewList(1,data,count)
 
+
+
       this.setState({
         lastPage,
         rating,
         reviewList:data,
         currentList,
         count,
+        searchStatus:false,
         overallRate:rating.review
       })
     })
@@ -223,6 +226,7 @@ class App extends React.Component{
           (this.state.searchCount > 0 &&
           <ReviewList
             reviewList={this.state.currentList}
+            searchValue={this.state.searchValue}
             lastPage={this.state.lastPage}
             count={this.state.searchCount}
             currentPage={this.state.currentPage}

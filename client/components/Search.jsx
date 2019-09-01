@@ -24,13 +24,13 @@ const Search_box = styled.form`
 `;
 
 const Search_close_icon_content = styled.a`
-  font-family:Arial Unicode MS
-  cursor: pointer
+  font-family:Arial Unicode MS;
+  cursor: pointer;
   position: absolute;
   right: 10px;
   top: 7px;
   font-size:16px;
-  color:lightgray
+  color:lightgray;
   font-weight:lighter;
 `;
 

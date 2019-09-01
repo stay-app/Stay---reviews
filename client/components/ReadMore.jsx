@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components'
 
 const Read_More = styled.a`
-  font:inherit
-  color:#008489
-  cursor: pointer
-  background: transparent
-  -webkit-font-smoothing: antialiase
+  font:inherit;
+  color:#008489;
+  cursor: pointer;
+  background: transparent;
+  -webkit-font-smoothing: antialiase;
 `;
 
 

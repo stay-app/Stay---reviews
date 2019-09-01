@@ -6,7 +6,11 @@ import Page from './Page.jsx';
 const ReviewList = (props) => {
   return(
     <div>
-      {props.reviewList.map((data) => { return <Review data={data}/>})}
+      {props.reviewList.map((data) => <Review
+        data={data}
+        searchStatus={props.searchStatus}
+        searchValue={props.searchValue}
+      />)}
       {props.lastPage > 1 && <Page
         renderCurrentPage={props.renderCurrentPage}
         lastPage={props.lastPage}

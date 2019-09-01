@@ -1,14 +1,15 @@
 import React from 'react';
 import ReadMore from './ReadMore.jsx';
+import FullContent from './FullContent.jsx';
 import moment from 'moment';
 import styled from 'styled-components'
 
-const Review_profile = styled.div`
+const ReviewProfile = styled.div`
   box-sizing: border-box;
-  border-bottom: 1px ridge lightgrey
+  border-bottom: 1px ridge lightgrey;
 `;
 
-const Review_content = styled.div`
+const ReviewContent = styled.div`
   margin-bottom:30px;
 `;
 
@@ -29,9 +30,11 @@ const ProfileImg = styled.img`
   height:48px;
   border-Radius:50%
 `
+
+
 const Review = (props) => {
   return(
-    <Review_profile>
+    <ReviewProfile>
       <Profile>
         <ProfileImg src={props.data.profile}></ProfileImg>
         <ProfileTitle>
@@ -39,14 +42,20 @@ const Review = (props) => {
           <div>{moment(props.data.review_date).format('MMMM YYYY')}</div>
         </ProfileTitle>
       </Profile>
-      <Review_content>
-        {!props.searchStatus && props.data.comments.split(" ").length > 30 ? <ReadMore comments = {props.data.comments}/> : <div>{props.data.comments}</div>}
-      </Review_content>
-    </Review_profile>
+      <ReviewContent>
+        {props.searchStatus?
+          <FullContent
+            comments={props.data.comments}
+            searchValue={props.searchValue}
+          /> :
+          props.data.comments.split(" ").length <= 30 ?
+            <div>{props.data.comments}</div> :
+            <ReadMore comments = {props.data.comments}/>}
+      </ReviewContent>
+    </ReviewProfile>
 
   )
 }
-
 
 export default Review
 
