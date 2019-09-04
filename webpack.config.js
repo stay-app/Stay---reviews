@@ -1,7 +1,8 @@
 module.exports = {
   mode: "development",
-  entry: __dirname + '/client/index.jsx',
+  entry: __dirname + '/client/Reviews.jsx',
   output: {
+   library: 'Reviews',
    filename: 'bundle.js',
    path: __dirname + '/public'
   },
