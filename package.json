@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "nodemon ./server/index.js",
-    "react-dev": "webpack -d --watch",
+    "build": "webpack -d --watch",
     "fake-listing": "node db/dataGenerate/listing.js",
     "fake-user": "node db/dataGenerate/user.js",
     "fake-stay": "node db/dataGenerate/stay.js",
@@ -50,7 +50,6 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.2.1",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
