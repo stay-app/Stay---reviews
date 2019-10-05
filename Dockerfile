@@ -1,4 +1,4 @@
-FROM node:8.16.0-alpine
+FROM node:latest
 
 RUN mkdir -p /src/app
 
@@ -10,4 +10,4 @@ RUN yarn install
 
 EXPOSE 5002
 
-CMD [ "yarn", "start", "&&", "yarn",'build']
+CMD [ "yarn", "start"]

@@ -2,7 +2,6 @@ import React from 'react';
 import ReadMore from './ReadMore.jsx';
 import FullContent from './FullContent.jsx';
 import moment from 'moment';
-import styled from 'styled-components'
 
 const ReviewProfile = styled.div`
   box-sizing: border-box;

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 const Search_box_text = styled.input`
   font-size:12px;
@@ -38,7 +38,6 @@ const Search_close_icon_content = styled.a`
 class Search extends React.Component{
   constructor(props) {
     super(props)
-    // state={focused:false}
     this.inputRef = React.createRef();
 
     this.changeHandler = this.changeHandler.bind(this);
@@ -62,7 +61,7 @@ class Search extends React.Component{
   render(){
     return(
         <Search_box onSubmit={this.submitHandler} >
-          <i style={{position:`absolute`,left: `6px`,top: `10px`,fontSize:`19px`,fontWeight:`9`}}class="material-icons">search</i>
+          <i style={{position:`absolute`,left: `6px`,top: `10px`,fontSize:`19px`,fontWeight:`9`}} className="material-icons">search</i>
           <Search_box_text
             id="search_text"
             type="text"

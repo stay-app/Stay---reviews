@@ -4,7 +4,7 @@ import ReviewList from './components/ReviewList.jsx';
 import RatingComp from './components/Rating.jsx';
 import Search from './components/Search.jsx';
 import SearchSummary from './components/SearchSummary.jsx';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import Ratings from 'react-ratings-declarative';
 
 
@@ -46,7 +46,7 @@ class Reviews extends React.Component{
       searchCount:0,
       searchedList:[],
       searchValue:"",
-      hostID:69,
+      hostID:67,
       reviewList:[],
       rating:{},
       lastPage:0,
@@ -67,7 +67,10 @@ class Reviews extends React.Component{
 
   //setup for initial rendering
   componentDidMount(){
-    $.get('/api/reviews',{host:this.state.hostID},(data) => {
+    const idString = document.URL.split('?')[document.URL.split('?').length-1];
+    const id = idString.includes('http')? this.state.hostID : idString
+
+    $.get('http://localhost:5002/api/reviews',{host:id},(data) => {
       const rating = this.calculeteAverageRating(data);
       const count = rating.count;
       const lastPage = Math.ceil(count / 7);

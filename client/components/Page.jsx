@@ -1,8 +1,5 @@
 import React from 'react';
 import SVG from 'react-inlinesvg';
-import Left from './assets/images/left-arrow.svg';
-import Right from './assets/images/right-arrow.svg';
-import styled from 'styled-components';
 
 const PageIcon = styled.div`
   display:inline-flex;
@@ -85,7 +82,7 @@ class Page extends React.Component{
   render(){
     return(
       <PageIcon>
-          {this.props.currentPage !== 1 && <PageButton><SVG id="left" src={Left} onClick={this.decreaseCurrentPgHandler}></SVG></PageButton> }
+          {this.props.currentPage !== 1 && <PageButton><SVG id="left" src="http://localhost:5002/fonts/left-arrow.svg" onClick={this.decreaseCurrentPgHandler}></SVG></PageButton> }
 
           <div style={{display:`inline-flex`, marginLeft:`20px`,marginRight:`20px`}}>
 
@@ -112,7 +109,7 @@ class Page extends React.Component{
             {this.props.currentPage !==this.props.lastPage && <PageNumber className="pg" id={this.props.lastPage} type="button" onClick={this.changeCurrentPgHandler}>{this.props.lastPage}</PageNumber>}
           </div>
 
-          {this.props.currentPage !== this.props.lastPage && <PageButton><SVG id="left" src={Right} onClick={this.increaseCurrentPgHandler}></SVG></PageButton>}
+          {this.props.currentPage !== this.props.lastPage && <PageButton><SVG id="right" src="http://localhost:5002/fonts/right-arrow.svg" onClick={this.increaseCurrentPgHandler}></SVG></PageButton>}
       </PageIcon>
     )
   }

@@ -1,6 +1,6 @@
 module.exports = {
   mode: "development",
-  entry: __dirname + '/client/Reviews.jsx',
+  entry: './client/Reviews.jsx',
   output: {
    library: 'Reviews',
    filename: 'bundle.js',

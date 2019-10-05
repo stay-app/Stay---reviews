@@ -10,10 +10,7 @@
   "scripts": {
     "start": "nodemon ./server/index.js",
     "build": "webpack -d --watch",
-    "fake-listing": "node db/dataGenerate/listing.js",
-    "fake-user": "node db/dataGenerate/user.js",
-    "fake-stay": "node db/dataGenerate/stay.js",
-    "fake-review": "node db/dataGenerate/review.js",
+    "seed": "node db/dataGenerate/listing.js && node db/dataGenerate/user.js && node db/dataGenerate/stay.js && node db/dataGenerate/review.js",
     "test": "jest --coverage"
   },
   "dependencies": {
@@ -22,6 +19,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "chai-enzyme": "^1.0.0-beta.1",
+    "cors": "^2.8.5",
     "enzyme-to-json": "^3.4.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
