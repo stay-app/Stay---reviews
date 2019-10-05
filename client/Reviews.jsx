@@ -95,7 +95,6 @@ class Reviews extends React.Component{
     if(this.state.searchValue !== "") {
       let keyWord = this.state.searchValue;
       let searchedList = this.calculateSearchList(keyWord);
-      console.log('check the list',searchedList)
       let searchCount = searchedList.length
       let lastPage = Math.ceil(searchCount / 7);
       let currentList =this.currentPageReviewList(1,searchedList,searchCount)
