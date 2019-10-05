@@ -1,30 +1,26 @@
 # Project Name
 
-> Project description
+A short term apartment booking app. Built with React, Node/Express, Webpack and deployed through Docker & AWS.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/stay-app/Stay-Overview
+  - https://github.com/stay-app/Stay-Reservation-Service
+  - https://github.com/stay-app/Stay-PhotoGallery-Service
 
 ## Table of Contents
 
-1. [Usage](#Usage)
 1. [Requirements](#requirements)
-1. [Development](#development)
+2. [Development](#development)
 
-## Usage
-
-> Some usage instructions
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- etc
+- React
+- Express
 
 ## Development
 
@@ -39,4 +35,5 @@ npm install
 
 yarn start
 yarn test
+yarn build
 
