@@ -1,6 +1,6 @@
 # Project Name
 
-A short term apartment booking app. Built with React, Node/Express, Webpack and deployed through Docker & AWS.
+A review module for a short term apartment booking app. Built with React, Node/Express, Webpack and deployed through Docker & AWS.
 
 ## Related Projects
 
