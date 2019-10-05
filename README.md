@@ -31,9 +31,10 @@ From within the root directory:
 ```sh
 npm install -g webpack
 npm install
-```
-
 yarn start
 yarn test
 yarn build
+```
+
+
 
