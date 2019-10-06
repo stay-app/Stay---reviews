@@ -35,6 +35,9 @@ yarn start
 yarn test
 yarn build
 ```
+### API
+
+Use end point :5002/?={listing} to fetch listing data. Listing ranges from 1 to 100:
 
 
 
